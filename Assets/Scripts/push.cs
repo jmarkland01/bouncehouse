@@ -14,6 +14,7 @@ public class push : MonoBehaviour
 	Camera cam;
 	private Transform shape;
 
+
 	void Start ()
 	{
 		power = 0;
@@ -35,8 +36,11 @@ public class push : MonoBehaviour
 			charging = true;
 		}
 		if (Input.GetButtonUp ("Fire1")) {
+			
 			Collider[] hitColliders = Physics.OverlapSphere (transform.position, Mathf.Min (range, 10));
 			foreach (Collider c in hitColliders) {
+				
+				
 				Rigidbody rb = c.GetComponent<Rigidbody> ();
 				if (rb) {
 					Vector3 screenPoint = cam.WorldToViewportPoint (rb.transform.position);
